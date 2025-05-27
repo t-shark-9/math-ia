@@ -1,0 +1,82 @@
+# Stock Market Simulation Plan for Unity
+
+## 1. Project Setup
+- Create a new Unity project.
+- Set up a 2D or 3D scene (depending on your preference for visual representation).
+- Add necessary UI elements for displaying stock prices, player actions, and outcomes.
+
+## 2. Core Components
+### a. Stock Market System
+- **Stock Price**: 
+  - Starts at 50.
+  - Changes based on the law of demand and player actions.
+  - Simulate 24 actions per day, weekly actions only.
+  - Randomly initialize the market for the first month.
+  - Runs for 1 year in simulation time.
+
+- **Price Calculation**:
+  - Implement the law of demand to adjust stock prices.
+  - Add randomness to simulate market fluctuations.
+
+### b. Player Strategies
+- **Momentum Buying**:
+  - Buy when stocks are trending upward.
+  - Rule: Buy after a 10% increase, exit after 10% up or 10% down.
+  - Ensure no buy if the stock drops more than 5% in between.
+
+- **Value Investing**:
+  - Buy when stocks are undervalued.
+  - Rule: Buy if the stock is below the 30-day trendline (50-day trendline sets worth).
+  - Sell after 20% up or 10% down.
+
+### c. Player Actions
+- Limit players to buying only once.
+- Track player actions and outcomes.
+
+## 3. Simulation Goals
+- Investigate the impact of too many players adopting the same strategy.
+- Define:
+  - `x`: Number of players using momentum strategy.
+  - `F(x)`: Payoff (quantifying profits).
+  - Momentum trading: `fm(x) = mx + c` (with `m` negative).
+  - Value trading: `fv(x) = mx + c` (with `m` positive).
+
+- Find the optimal ratio of momentum traders to value traders for maximum profit.
+
+## 4. Unity Implementation
+### a. Scripts
+- **MarketManager.cs**:
+  - Handles stock price updates and market rules.
+  - Simulates daily and weekly actions.
+
+- **PlayerManager.cs**:
+  - Manages player strategies and actions.
+  - Tracks player profits and outcomes.
+
+- **Strategy.cs**:
+  - Implements momentum and value strategies.
+  - Calculates buy/sell decisions based on rules.
+
+- **SimulationManager.cs**:
+  - Runs the simulation for 1 year.
+  - Collects data on player outcomes and market behavior.
+
+### b. UI Elements
+- Display stock prices and trends.
+- Show player actions and outcomes.
+- Include graphs for visualizing market trends and player profits.
+
+## 5. Data Analysis
+- Collect data on player outcomes and market behavior.
+- Analyze the effectiveness of each strategy.
+- Determine the optimal ratio of momentum to value traders.
+
+## 6. Testing
+- Test the simulation with different player ratios.
+- Validate that the market behaves as expected.
+- Ensure the simulation meets the defined goals.
+
+## 7. Future Enhancements
+- Add more complex market dynamics.
+- Introduce additional player strategies.
+- Implement multiplayer support for real-time simulations.
